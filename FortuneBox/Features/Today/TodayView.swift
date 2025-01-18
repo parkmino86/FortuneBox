@@ -9,21 +9,19 @@ import SwiftUI
 
 struct TodayView: View {
     @StateObject private var viewModel = TodayViewModel()
-    @State private var isSpinning = false
-    @State private var showResult = false
 
     var body: some View {
         VStack {
             Spacer()
 
             VStack {
-                if isSpinning {
+                if viewModel.isSpinning {
                     EmojiSpinnerView(
-                        isSpinning: $isSpinning,
+                        isSpinning: $viewModel.isSpinning,
                         itemsToSelect: viewModel.todayFortune?.emojis ?? ["🎲", "🎲", "🎲"]
                     ) {
                         withAnimation(.easeInOut(duration: 0.5)) {
-                            showResult = true
+                            viewModel.showResult = true
                         }
                     }
                 } else {
@@ -37,20 +35,20 @@ struct TodayView: View {
                 }
             }
 
-            if showResult, let fortune = viewModel.todayFortune {
+            if viewModel.showResult, let fortune = viewModel.todayFortune {
                 Text(fortune.text)
                     .font(.title)
                     .multilineTextAlignment(.center)
                     .padding(.top, 20)
                     .transition(.opacity)
-                    .animation(.easeInOut(duration: 0.5), value: showResult)
+                    .animation(.easeInOut(duration: 0.5), value: viewModel.showResult)
             }
 
             Spacer()
 
             Button(action: {
-                isSpinning = true
-                showResult = false
+                viewModel.isSpinning = true
+                viewModel.showResult = false
                 viewModel.openFortune()
             }) {
                 Text("운빨 열기")
@@ -62,7 +60,7 @@ struct TodayView: View {
             }
             .padding(.horizontal, 20)
             .padding(.bottom, 30)
-            .disabled(isSpinning)
+            .disabled(viewModel.isSpinning)
         }
         .padding()
     }

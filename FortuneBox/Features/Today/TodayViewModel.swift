@@ -13,9 +13,6 @@ final class TodayViewModel: ObservableObject {
     @Published var showResult = false
 
     func openFortune() {
-        isSpinning = true
-        showResult = false
-
         if let randomFortune = FortuneStorage.shared.fetchRandomFortune() {
             todayFortune = randomFortune
         } else {
