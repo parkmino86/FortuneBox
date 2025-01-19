@@ -68,7 +68,7 @@ struct TodayView: View {
             Button(action: {
                 viewModel.confirmButtonTapped()
             }) {
-                Text("\(viewModel.isCompleted ? "다시" : "운세") 열어보기")
+                Text("운세 열어보기")
                     .font(.system(size: 18, weight: .medium))
                     .padding()
                     .frame(maxWidth: .infinity, minHeight: 50)
@@ -81,7 +81,7 @@ struct TodayView: View {
             .padding(.bottom, 30)
             .disabled(viewModel.isSpinning)
             .opacity(viewModel.isSpinning || viewModel.isTyping ? 0.0 : 1.0)
-            .animation(.easeInOut(duration: 0.3), value: viewModel.isSpinning)
+            .animation(.easeInOut(duration: 0.3), value: viewModel.isCompleted)
         }
         .padding()
         .background(Color.black.ignoresSafeArea())
