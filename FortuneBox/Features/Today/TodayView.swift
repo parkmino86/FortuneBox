@@ -14,53 +14,49 @@ struct TodayView: View {
         VStack {
             Spacer()
 
-            VStack {
-                if viewModel.isSpinning {
-                    EmojiSpinnerView(
-                        isSpinning: $viewModel.isSpinning,
-                        itemsToSelect: viewModel.todayFortune?.emojis ?? ["🎲", "🎲", "🎲"]
-                    ) {
-                        withAnimation(.easeInOut(duration: 0.5)) {
-                            viewModel.showResult = true
-                        }
-                    }
-                } else {
+            switch viewModel.state {
+            case .idle:
+                Text("운세를 열어보세요!")
+                    .font(.title)
+
+            case .spinning(let fortune):
+                EmojiSpinnerView(viewModel: EmojiSpinnerViewModel(fortune: fortune)) {
+                    viewModel.completeSpinning()
+                }
+
+            case .completed(let fortune):
+                VStack {
                     HStack {
-                        ForEach(viewModel.todayFortune?.emojis ?? ["🎲", "🎲", "🎲"], id: \.self) { emoji in
+                        ForEach(fortune.emojis, id: \.self) { emoji in
                             Text(emoji)
                                 .font(.system(size: 80))
                         }
                     }
-                    .padding()
+                    Text(fortune.text)
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                        .padding(.top, 20)
+                        .transition(.opacity)
+                        .animation(.easeInOut(duration: 0.5), value: viewModel.state)
                 }
-            }
-
-            if viewModel.showResult, let fortune = viewModel.todayFortune {
-                Text(fortune.text)
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 20)
-                    .transition(.opacity)
-                    .animation(.easeInOut(duration: 0.5), value: viewModel.showResult)
             }
 
             Spacer()
 
             Button(action: {
-                viewModel.isSpinning = true
-                viewModel.showResult = false
-                viewModel.openFortune()
+                viewModel.startSpinning()
             }) {
-                Text("운빨 열기")
+                Text("확인")
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.blue)
+                    .background(viewModel.isSpinning ? Color.gray : Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
             .padding(.horizontal, 20)
             .padding(.bottom, 30)
             .disabled(viewModel.isSpinning)
+            .opacity(viewModel.isSpinning ? 0.0 : 1.0)
         }
         .padding()
     }

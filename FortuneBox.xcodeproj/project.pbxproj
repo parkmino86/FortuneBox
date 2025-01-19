@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E3E452EA2D3C85B100DA3DF5 /* SpinnerItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452E92D3C85B100DA3DF5 /* SpinnerItemViewModel.swift */; };
+		E3E452EC2D3C85BB00DA3DF5 /* SpinnerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452EB2D3C85BB00DA3DF5 /* SpinnerItemView.swift */; };
+		E3E452EE2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452ED2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift */; };
 		E3F5CC682D3B842B0017FAE5 /* FortuneBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5CC672D3B842B0017FAE5 /* FortuneBoxApp.swift */; };
 		E3F5CC6C2D3B842E0017FAE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F5CC6B2D3B842E0017FAE5 /* Assets.xcassets */; };
 		E3F5CC6F2D3B842E0017FAE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F5CC6E2D3B842E0017FAE5 /* Preview Assets.xcassets */; };
@@ -16,7 +19,7 @@
 		E3F5CC962D3B86B80017FAE5 /* Fortune.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5CC952D3B86B80017FAE5 /* Fortune.swift */; };
 		E3F5CC992D3B86D00017FAE5 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5CC982D3B86D00017FAE5 /* TodayView.swift */; };
 		E3F5CC9B2D3B86DE0017FAE5 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5CC9A2D3B86DE0017FAE5 /* TodayViewModel.swift */; };
-		E3F5CCA62D3B882C0017FAE5 /* fortunelist.json in Resources */ = {isa = PBXBuildFile; fileRef = E3F5CCA52D3B882C0017FAE5 /* fortunelist.json */; };
+		E3F5CCA62D3B882C0017FAE5 /* fortune.json in Resources */ = {isa = PBXBuildFile; fileRef = E3F5CCA52D3B882C0017FAE5 /* fortune.json */; };
 		E3F5CCA82D3B884A0017FAE5 /* FortuneStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5CCA72D3B884A0017FAE5 /* FortuneStorage.swift */; };
 		E3F5CCAB2D3B8A550017FAE5 /* EmojiSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5CCAA2D3B8A550017FAE5 /* EmojiSpinnerView.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E3E452E92D3C85B100DA3DF5 /* SpinnerItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerItemViewModel.swift; sourceTree = "<group>"; };
+		E3E452EB2D3C85BB00DA3DF5 /* SpinnerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerItemView.swift; sourceTree = "<group>"; };
+		E3E452ED2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSpinnerViewModel.swift; sourceTree = "<group>"; };
 		E3F5CC642D3B842B0017FAE5 /* FortuneBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FortuneBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F5CC672D3B842B0017FAE5 /* FortuneBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneBoxApp.swift; sourceTree = "<group>"; };
 		E3F5CC6B2D3B842E0017FAE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,7 +57,7 @@
 		E3F5CC952D3B86B80017FAE5 /* Fortune.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fortune.swift; sourceTree = "<group>"; };
 		E3F5CC982D3B86D00017FAE5 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		E3F5CC9A2D3B86DE0017FAE5 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
-		E3F5CCA52D3B882C0017FAE5 /* fortunelist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fortunelist.json; sourceTree = "<group>"; };
+		E3F5CCA52D3B882C0017FAE5 /* fortune.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fortune.json; sourceTree = "<group>"; };
 		E3F5CCA72D3B884A0017FAE5 /* FortuneStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneStorage.swift; sourceTree = "<group>"; };
 		E3F5CCAA2D3B8A550017FAE5 /* EmojiSpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSpinnerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +87,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3E452E72D3C82ED00DA3DF5 /* EmojiSpinnerView */ = {
+			isa = PBXGroup;
+			children = (
+				E3E452E82D3C851F00DA3DF5 /* Item */,
+				E3F5CCAA2D3B8A550017FAE5 /* EmojiSpinnerView.swift */,
+				E3E452ED2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift */,
+			);
+			path = EmojiSpinnerView;
+			sourceTree = "<group>";
+		};
+		E3E452E82D3C851F00DA3DF5 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				E3E452EB2D3C85BB00DA3DF5 /* SpinnerItemView.swift */,
+				E3E452E92D3C85B100DA3DF5 /* SpinnerItemViewModel.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
 		E3F5CC5B2D3B842B0017FAE5 = {
 			isa = PBXGroup;
 			children = (
@@ -216,7 +241,7 @@
 		E3F5CCA42D3B88090017FAE5 /* Local */ = {
 			isa = PBXGroup;
 			children = (
-				E3F5CCA52D3B882C0017FAE5 /* fortunelist.json */,
+				E3F5CCA52D3B882C0017FAE5 /* fortune.json */,
 				E3F5CCA72D3B884A0017FAE5 /* FortuneStorage.swift */,
 			);
 			path = Local;
@@ -225,7 +250,7 @@
 		E3F5CCA92D3B8A4C0017FAE5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E3F5CCAA2D3B8A550017FAE5 /* EmojiSpinnerView.swift */,
+				E3E452E72D3C82ED00DA3DF5 /* EmojiSpinnerView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -334,7 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3F5CCA62D3B882C0017FAE5 /* fortunelist.json in Resources */,
+				E3F5CCA62D3B882C0017FAE5 /* fortune.json in Resources */,
 				E3F5CC6F2D3B842E0017FAE5 /* Preview Assets.xcassets in Resources */,
 				E3F5CC6C2D3B842E0017FAE5 /* Assets.xcassets in Resources */,
 			);
@@ -362,6 +387,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3F5CCA82D3B884A0017FAE5 /* FortuneStorage.swift in Sources */,
+				E3E452EC2D3C85BB00DA3DF5 /* SpinnerItemView.swift in Sources */,
+				E3E452EA2D3C85B100DA3DF5 /* SpinnerItemViewModel.swift in Sources */,
+				E3E452EE2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift in Sources */,
 				E3F5CC682D3B842B0017FAE5 /* FortuneBoxApp.swift in Sources */,
 				E3F5CC9B2D3B86DE0017FAE5 /* TodayViewModel.swift in Sources */,
 				E3F5CC992D3B86D00017FAE5 /* TodayView.swift in Sources */,
