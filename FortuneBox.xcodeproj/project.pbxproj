@@ -10,6 +10,7 @@
 		E3E452EA2D3C85B100DA3DF5 /* SpinnerItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452E92D3C85B100DA3DF5 /* SpinnerItemViewModel.swift */; };
 		E3E452EC2D3C85BB00DA3DF5 /* SpinnerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452EB2D3C85BB00DA3DF5 /* SpinnerItemView.swift */; };
 		E3E452EE2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452ED2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift */; };
+		E3E452F22D3C990C00DA3DF5 /* GradientBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452F12D3C990C00DA3DF5 /* GradientBackgroundModifier.swift */; };
 		E3F5CC682D3B842B0017FAE5 /* FortuneBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5CC672D3B842B0017FAE5 /* FortuneBoxApp.swift */; };
 		E3F5CC6C2D3B842E0017FAE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F5CC6B2D3B842E0017FAE5 /* Assets.xcassets */; };
 		E3F5CC6F2D3B842E0017FAE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F5CC6E2D3B842E0017FAE5 /* Preview Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		E3E452E92D3C85B100DA3DF5 /* SpinnerItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerItemViewModel.swift; sourceTree = "<group>"; };
 		E3E452EB2D3C85BB00DA3DF5 /* SpinnerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerItemView.swift; sourceTree = "<group>"; };
 		E3E452ED2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSpinnerViewModel.swift; sourceTree = "<group>"; };
+		E3E452F12D3C990C00DA3DF5 /* GradientBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundModifier.swift; sourceTree = "<group>"; };
 		E3F5CC642D3B842B0017FAE5 /* FortuneBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FortuneBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F5CC672D3B842B0017FAE5 /* FortuneBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneBoxApp.swift; sourceTree = "<group>"; };
 		E3F5CC6B2D3B842E0017FAE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,6 +106,22 @@
 				E3E452E92D3C85B100DA3DF5 /* SpinnerItemViewModel.swift */,
 			);
 			path = Item;
+			sourceTree = "<group>";
+		};
+		E3E452EF2D3C98ED00DA3DF5 /* DesignSystems */ = {
+			isa = PBXGroup;
+			children = (
+				E3E452F02D3C990100DA3DF5 /* GradientBackground */,
+			);
+			path = DesignSystems;
+			sourceTree = "<group>";
+		};
+		E3E452F02D3C990100DA3DF5 /* GradientBackground */ = {
+			isa = PBXGroup;
+			children = (
+				E3E452F12D3C990C00DA3DF5 /* GradientBackgroundModifier.swift */,
+			);
+			path = GradientBackground;
 			sourceTree = "<group>";
 		};
 		E3F5CC5B2D3B842B0017FAE5 = {
@@ -209,6 +227,7 @@
 		E3F5CC9C2D3B86FA0017FAE5 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E3E452EF2D3C98ED00DA3DF5 /* DesignSystems */,
 				E3F5CCA92D3B8A4C0017FAE5 /* Components */,
 				E3F5CC9E2D3B870E0017FAE5 /* Extensions */,
 				E3F5CC9D2D3B87070017FAE5 /* Utilities */,
@@ -386,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3E452F22D3C990C00DA3DF5 /* GradientBackgroundModifier.swift in Sources */,
 				E3F5CCA82D3B884A0017FAE5 /* FortuneStorage.swift in Sources */,
 				E3E452EC2D3C85BB00DA3DF5 /* SpinnerItemView.swift in Sources */,
 				E3E452EA2D3C85B100DA3DF5 /* SpinnerItemViewModel.swift in Sources */,

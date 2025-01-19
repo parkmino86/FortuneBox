@@ -9,12 +9,12 @@ import Foundation
 
 final class TodayViewModel: ObservableObject {
     enum State: Equatable {
-        case idle
+        case appear
         case spinning(fortune: Fortune)
         case completed(fortune: Fortune)
     }
 
-    @Published private(set) var state: State = .idle
+    @Published private(set) var state: State = .appear
 
     var isSpinning: Bool {
         if case .spinning = state { return true }
