@@ -22,7 +22,7 @@ struct TodayView: View {
 
             case .emojiSpinnerAnimation(let fortune):
                 EmojiSpinnerView(viewModel: EmojiSpinnerViewModel(fortune: fortune)) {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         viewModel.emojiSpinnerAnimationCompleted()
                     }
                 }
