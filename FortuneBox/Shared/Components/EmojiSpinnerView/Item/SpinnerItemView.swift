@@ -12,7 +12,7 @@ struct SpinnerItemView: View {
 
     var body: some View {
         Text(viewModel.currentEmoji)
-            .font(.system(size: 80))
+            .font(.system(size: 64))
             .onAppear {
                 viewModel.startSpinning()
             }

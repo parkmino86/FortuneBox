@@ -11,6 +11,8 @@
 		E3E452EC2D3C85BB00DA3DF5 /* SpinnerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452EB2D3C85BB00DA3DF5 /* SpinnerItemView.swift */; };
 		E3E452EE2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452ED2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift */; };
 		E3E452F22D3C990C00DA3DF5 /* GradientBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452F12D3C990C00DA3DF5 /* GradientBackgroundModifier.swift */; };
+		E3E452FA2D3CF49800DA3DF5 /* TypingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452F82D3CF49800DA3DF5 /* TypingAnimationView.swift */; };
+		E3E452FB2D3CF49800DA3DF5 /* TypingAnimationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452F92D3CF49800DA3DF5 /* TypingAnimationViewModel.swift */; };
 		E3F5CC682D3B842B0017FAE5 /* FortuneBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5CC672D3B842B0017FAE5 /* FortuneBoxApp.swift */; };
 		E3F5CC6C2D3B842E0017FAE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F5CC6B2D3B842E0017FAE5 /* Assets.xcassets */; };
 		E3F5CC6F2D3B842E0017FAE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F5CC6E2D3B842E0017FAE5 /* Preview Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		E3E452EB2D3C85BB00DA3DF5 /* SpinnerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerItemView.swift; sourceTree = "<group>"; };
 		E3E452ED2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSpinnerViewModel.swift; sourceTree = "<group>"; };
 		E3E452F12D3C990C00DA3DF5 /* GradientBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundModifier.swift; sourceTree = "<group>"; };
+		E3E452F82D3CF49800DA3DF5 /* TypingAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypingAnimationView.swift; sourceTree = "<group>"; };
+		E3E452F92D3CF49800DA3DF5 /* TypingAnimationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypingAnimationViewModel.swift; sourceTree = "<group>"; };
 		E3F5CC642D3B842B0017FAE5 /* FortuneBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FortuneBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F5CC672D3B842B0017FAE5 /* FortuneBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneBoxApp.swift; sourceTree = "<group>"; };
 		E3F5CC6B2D3B842E0017FAE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,6 +126,15 @@
 				E3E452F12D3C990C00DA3DF5 /* GradientBackgroundModifier.swift */,
 			);
 			path = GradientBackground;
+			sourceTree = "<group>";
+		};
+		E3E452F52D3CA0BB00DA3DF5 /* TypingAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				E3E452F82D3CF49800DA3DF5 /* TypingAnimationView.swift */,
+				E3E452F92D3CF49800DA3DF5 /* TypingAnimationViewModel.swift */,
+			);
+			path = TypingAnimationView;
 			sourceTree = "<group>";
 		};
 		E3F5CC5B2D3B842B0017FAE5 = {
@@ -269,6 +282,7 @@
 		E3F5CCA92D3B8A4C0017FAE5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E3E452F52D3CA0BB00DA3DF5 /* TypingAnimationView */,
 				E3E452E72D3C82ED00DA3DF5 /* EmojiSpinnerView */,
 			);
 			path = Components;
@@ -410,9 +424,11 @@
 				E3E452EC2D3C85BB00DA3DF5 /* SpinnerItemView.swift in Sources */,
 				E3E452EA2D3C85B100DA3DF5 /* SpinnerItemViewModel.swift in Sources */,
 				E3E452EE2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift in Sources */,
+				E3E452FB2D3CF49800DA3DF5 /* TypingAnimationViewModel.swift in Sources */,
 				E3F5CC682D3B842B0017FAE5 /* FortuneBoxApp.swift in Sources */,
 				E3F5CC9B2D3B86DE0017FAE5 /* TodayViewModel.swift in Sources */,
 				E3F5CC992D3B86D00017FAE5 /* TodayView.swift in Sources */,
+				E3E452FA2D3CF49800DA3DF5 /* TypingAnimationView.swift in Sources */,
 				E3F5CC962D3B86B80017FAE5 /* Fortune.swift in Sources */,
 				E3F5CCAB2D3B8A550017FAE5 /* EmojiSpinnerView.swift in Sources */,
 			);

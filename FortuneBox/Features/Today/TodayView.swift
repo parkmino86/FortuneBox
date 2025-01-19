@@ -17,15 +17,17 @@ struct TodayView: View {
             switch viewModel.state {
             case .appear:
                 Text("운세를 열어보세요!")
-                    .font(.title)
+                    .font(.system(size: 22, weight: .regular))
                     .foregroundColor(.white)
 
-            case .spinning(let fortune):
+            case .emojiSpinnerAnimation(let fortune):
                 EmojiSpinnerView(viewModel: EmojiSpinnerViewModel(fortune: fortune)) {
-                    viewModel.completeSpinning()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        viewModel.emojiSpinnerAnimationCompleted()
+                    }
                 }
 
-            case .completed(let fortune):
+            case .emojiSpinnerAnimationCompleted(let fortune):
                 VStack {
                     HStack {
                         ForEach(fortune.emojis, id: \.self) { emoji in
@@ -33,23 +35,41 @@ struct TodayView: View {
                                 .font(.system(size: 80))
                         }
                     }
-                    Text(fortune.text)
-                        .font(.title)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.white)
-                        .padding(.top, 20)
-                        .transition(.opacity)
-                        .animation(.easeInOut(duration: 0.5), value: viewModel.state)
                 }
+                .onAppear {
+                    viewModel.typingTextAnimation()
+                }
+                
+            case .typingTextAnimation(let fortune):
+                TypingAnimationView(message: fortune.text) {
+                    viewModel.typingTextAnimationCompleted()
+                }
+                .font(.system(size: 22, weight: .regular))
+                .multilineTextAlignment(.center)
+                .lineSpacing(8)
+                .kerning(1.2)
+                .foregroundColor(.white)
+                .padding(.top, 20)
+                .padding(.horizontal, 20)
+                
+            case .typingTextAnimationCompleted(let fortune):
+                Text(fortune.text)
+                    .font(.system(size: 22, weight: .regular))
+                    .multilineTextAlignment(.center)
+                    .lineSpacing(8)
+                    .kerning(1.2)
+                    .foregroundColor(.white)
+                    .padding(.top, 20)
+                    .padding(.horizontal, 20)
             }
 
             Spacer()
 
             Button(action: {
-                viewModel.startSpinning()
+                viewModel.confirmButtonTapped()
             }) {
-                Text("운세 열어보기")
-                    .font(.system(size: 18, weight: .semibold))
+                Text("\(viewModel.isCompleted ? "다시" : "운세") 열어보기")
+                    .font(.system(size: 18, weight: .medium))
                     .padding()
                     .frame(maxWidth: .infinity, minHeight: 50)
                     .foregroundColor(.white)
@@ -60,7 +80,7 @@ struct TodayView: View {
             .padding(.horizontal, 20)
             .padding(.bottom, 30)
             .disabled(viewModel.isSpinning)
-            .opacity(viewModel.isSpinning ? 0.0 : 1.0)
+            .opacity(viewModel.isSpinning || viewModel.isTyping ? 0.0 : 1.0)
             .animation(.easeInOut(duration: 0.3), value: viewModel.isSpinning)
         }
         .padding()

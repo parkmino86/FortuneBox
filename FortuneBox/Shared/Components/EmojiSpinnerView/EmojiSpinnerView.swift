@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EmojiSpinnerView: View {
     @ObservedObject var viewModel: EmojiSpinnerViewModel
-    let onComplete: () -> Void
+    let allSpinnersCompleted: () -> Void
 
     var body: some View {
         HStack {
@@ -17,10 +17,8 @@ struct EmojiSpinnerView: View {
                 SpinnerItemView(viewModel: viewModel.spinnerItems[index])
             }
         }
-        .onChange(of: viewModel.allSpinnersCompleted) {
-            if viewModel.allSpinnersCompleted {
-                onComplete()
-            }
+        .onReceive(viewModel.$allSpinnersCompleted.filter { $0 }) { _ in
+            allSpinnersCompleted()
         }
     }
 }
