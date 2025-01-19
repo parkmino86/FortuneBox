@@ -11,7 +11,7 @@ final class FortuneStorage {
     static let shared = FortuneStorage()
     private init() {}
 
-    private let fileName = "fortune"
+    private let fileName = "fortune-box"
     private let fileExtension = "json"
 
     func fetchRandomFortune() -> Fortune? {

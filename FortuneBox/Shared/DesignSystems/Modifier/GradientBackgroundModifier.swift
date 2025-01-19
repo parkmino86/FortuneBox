@@ -34,4 +34,12 @@ extension View {
     func bluePurpleGradientBackground(startPoint: UnitPoint = .topLeading, endPoint: UnitPoint = .bottomTrailing) -> some View {
         gradientBackground(colors: [Color.blue, Color.purple], startPoint: startPoint, endPoint: endPoint)
     }
+    
+    func redYellowGradientBackground() -> some View {
+        gradientBackground(colors: [Color.red, Color.yellow])
+    }
+    
+    func greenBlueGradientBackground() -> some View {
+        gradientBackground(colors: [Color.green, Color.blue])
+    }
 }

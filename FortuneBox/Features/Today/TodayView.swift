@@ -22,22 +22,35 @@ struct TodayView: View {
 
             case .emojiSpinnerAnimation(let fortune):
                 EmojiSpinnerView(viewModel: EmojiSpinnerViewModel(fortune: fortune)) {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                         viewModel.emojiSpinnerAnimationCompleted()
                     }
                 }
 
             case .emojiSpinnerAnimationCompleted(let fortune):
-                VStack {
+                VStack(spacing: 20) {
                     HStack {
                         ForEach(fortune.emojis, id: \.self) { emoji in
                             Text(emoji)
-                                .font(.system(size: 80))
+                                .font(.system(size: 64))
                         }
                     }
-                }
-                .onAppear {
-                    viewModel.typingTextAnimation()
+                    Text("🤔 오늘의 운세, 과연?! 💌")
+                        .font(.system(size: 22, weight: .regular))
+                    Button(action: {
+                        viewModel.emojiSpinnerAnimation()
+                    }) {
+                        Text("다시 한 번 시도?")
+                            .font(.system(size: 24, weight: .semibold))
+                            .lineSpacing(8)
+                            .padding()
+                            .foregroundColor(.white)
+                            .shimmer()
+                    }
+                    .cornerRadius(12)
+                    .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 30)
                 }
                 
             case .typingTextAnimation(let fortune):
@@ -66,7 +79,12 @@ struct TodayView: View {
             Spacer()
 
             Button(action: {
-                viewModel.confirmButtonTapped()
+                switch viewModel.state {
+                case .emojiSpinnerAnimationCompleted:
+                    viewModel.typingTextAnimation()
+                default:
+                    viewModel.emojiSpinnerAnimation()
+                }
             }) {
                 Text("운세 열어보기")
                     .font(.system(size: 18, weight: .medium))
@@ -74,14 +92,13 @@ struct TodayView: View {
                     .frame(maxWidth: .infinity, minHeight: 50)
                     .foregroundColor(.white)
             }
-            .bluePurpleGradientBackground()
+            .greenBlueGradientBackground()
             .cornerRadius(12)
             .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
             .padding(.horizontal, 20)
             .padding(.bottom, 30)
-            .disabled(viewModel.isSpinning)
-            .opacity(viewModel.isSpinning || viewModel.isTyping ? 0.0 : 1.0)
-            .animation(.easeInOut(duration: 0.3), value: viewModel.isCompleted)
+            .disabled(viewModel.disabled)
+            .opacity(viewModel.opacity)
         }
         .padding()
         .background(Color.black.ignoresSafeArea())

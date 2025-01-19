@@ -18,23 +18,19 @@ final class TodayViewModel: ObservableObject {
 
     @Published private(set) var state: State = .appear
 
-    var isSpinning: Bool {
+    var disabled: Bool {
         if case .emojiSpinnerAnimation = state { return true }
         return false
     }
     
-    var isTyping: Bool {
-        if case .typingTextAnimation = state { return true }
-        return false
+    var opacity: Double {
+        if case .emojiSpinnerAnimation = state { return 0.0 }
+        if case .typingTextAnimation = state { return 0.0 }
+        return 1.0
     }
     
-    var isCompleted: Bool {
-        if case .typingTextAnimationCompleted = state { return true }
-        return false
-    }
-
-    func confirmButtonTapped() {
-        guard isSpinning == false else { return }
+    func emojiSpinnerAnimation() {
+        guard disabled == false else { return }
         let fortune = FortuneStorage.shared.fetchRandomFortune() ?? Fortune(
             id: UUID().uuidString,
             text: "오늘은 평범한 하루입니다.",
