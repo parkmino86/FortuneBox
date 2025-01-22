@@ -16,8 +16,11 @@ struct TodayView: View {
 
             switch viewModel.state {
             case .appear:
-                Text("운세를 열어보세요!")
+                Text("오늘의 코드,\n운명은 당신의 손끝에!\n운세를 확인하세요!")
                     .font(.system(size: 22, weight: .regular))
+                    .multilineTextAlignment(.center)
+                    .lineSpacing(8)
+                    .kerning(1.2)
                     .foregroundColor(.white)
 
             case .emojiSpinnerAnimation(let fortune):
@@ -35,22 +38,22 @@ struct TodayView: View {
                                 .font(.system(size: 64))
                         }
                     }
-                    Text("🤔 오늘의 운세, 과연?! 💌")
+                    Text("커밋 성공,\n머지 완료! 운빨 100%!")
                         .font(.system(size: 22, weight: .regular))
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(8)
+                        .kerning(1.2)
+                        .foregroundColor(.white)
                     Button(action: {
                         viewModel.emojiSpinnerAnimation()
                     }) {
-                        Text("다시 한 번 시도?")
+                        Text("운세 빌드 실패!\n재시도합니다.")
                             .font(.system(size: 24, weight: .semibold))
                             .lineSpacing(8)
                             .padding()
                             .foregroundColor(.white)
                             .shimmer()
                     }
-                    .cornerRadius(12)
-                    .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 30)
                 }
                 
             case .typingTextAnimation(let fortune):
@@ -86,15 +89,21 @@ struct TodayView: View {
                     viewModel.emojiSpinnerAnimation()
                 }
             }) {
-                Text("운세 열어보기")
+                Text("운세 빌드 성공? 눌러보세요!")
                     .font(.system(size: 18, weight: .medium))
                     .padding()
                     .frame(maxWidth: .infinity, minHeight: 50)
                     .foregroundColor(.white)
+                    .shimmer(gradientColors: [Color.clear,
+                                              Color.clear,
+                                              Color.black.opacity(1.0),
+                                              Color.clear,
+                                              Color.clear,
+                                              Color.clear,
+                                              Color.clear])
             }
-            .greenBlueGradientBackground()
+            .bluePurpleGradientBackground()
             .cornerRadius(12)
-            .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
             .padding(.horizontal, 20)
             .padding(.bottom, 30)
             .disabled(viewModel.disabled)

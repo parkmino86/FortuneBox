@@ -19,26 +19,27 @@ struct ShimmerModifier: ViewModifier {
     }
 
     func body(content: Content) -> some View {
-        GeometryReader { geometry in
-            content
-                .overlay(
+        content
+            .overlay(
+                GeometryReader { geometry in
                     LinearGradient(
                         gradient: Gradient(colors: gradientColors),
                         startPoint: .leading,
                         endPoint: .trailing
                     )
-                    .offset(x: gradientLocation * geometry.size.width)
-                    .mask(content)
-                )
-                .onAppear {
-                    withAnimation(Animation.linear(duration: duration).repeatForever(autoreverses: false)) {
-                        gradientLocation = 2.0
-                    }
+                    .frame(width: geometry.size.width * 2)
+                    .offset(x: gradientLocation * geometry.size.width - geometry.size.width)
                 }
-                .onDisappear {
-                    gradientLocation = -1.0
+                .mask(content)
+            )
+            .onAppear {
+                withAnimation(Animation.linear(duration: duration).repeatForever(autoreverses: false)) {
+                    gradientLocation = 2.0
                 }
-        }
+            }
+            .onDisappear {
+                gradientLocation = -1.0
+            }
     }
 }
 

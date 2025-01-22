@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E35539382D3D1362006D11F5 /* ShimmerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35539372D3D1362006D11F5 /* ShimmerModifier.swift */; };
+		E35539452D3E8933006D11F5 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = E35539442D3E8933006D11F5 /* GoogleGenerativeAI */; };
+		E35539472D3E8B84006D11F5 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35539462D3E8B84006D11F5 /* GeminiService.swift */; };
+		E355394A2D411C5E006D11F5 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35539492D411C5E006D11F5 /* Secrets.swift */; };
 		E3E452EA2D3C85B100DA3DF5 /* SpinnerItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452E92D3C85B100DA3DF5 /* SpinnerItemViewModel.swift */; };
 		E3E452EC2D3C85BB00DA3DF5 /* SpinnerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452EB2D3C85BB00DA3DF5 /* SpinnerItemView.swift */; };
 		E3E452EE2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452ED2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift */; };
@@ -47,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		E35539372D3D1362006D11F5 /* ShimmerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerModifier.swift; sourceTree = "<group>"; };
+		E35539462D3E8B84006D11F5 /* GeminiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
+		E35539492D411C5E006D11F5 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		E3E452E92D3C85B100DA3DF5 /* SpinnerItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerItemViewModel.swift; sourceTree = "<group>"; };
 		E3E452EB2D3C85BB00DA3DF5 /* SpinnerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerItemView.swift; sourceTree = "<group>"; };
 		E3E452ED2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSpinnerViewModel.swift; sourceTree = "<group>"; };
@@ -75,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E35539452D3E8933006D11F5 /* GoogleGenerativeAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +108,22 @@
 				E3E452F12D3C990C00DA3DF5 /* GradientBackgroundModifier.swift */,
 			);
 			path = Modifier;
+			sourceTree = "<group>";
+		};
+		E35539412D3E88BB006D11F5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E35539422D3E88C7006D11F5 /* Gemini */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E35539422D3E88C7006D11F5 /* Gemini */ = {
+			isa = PBXGroup;
+			children = (
+				E35539462D3E8B84006D11F5 /* GeminiService.swift */,
+			);
+			path = Gemini;
 			sourceTree = "<group>";
 		};
 		E3E452E72D3C82ED00DA3DF5 /* EmojiSpinnerView */ = {
@@ -165,6 +187,7 @@
 			children = (
 				E3F5CC912D3B86890017FAE5 /* App */,
 				E3F5CC922D3B86930017FAE5 /* Features */,
+				E35539412D3E88BB006D11F5 /* Services */,
 				E3F5CC932D3B869D0017FAE5 /* Domain */,
 				E3F5CCA32D3B87F80017FAE5 /* Data */,
 				E3F5CC9C2D3B86FA0017FAE5 /* Shared */,
@@ -203,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				E3F5CC672D3B842B0017FAE5 /* FortuneBoxApp.swift */,
+				E35539492D411C5E006D11F5 /* Secrets.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -307,6 +331,9 @@
 			dependencies = (
 			);
 			name = FortuneBox;
+			packageProductDependencies = (
+				E35539442D3E8933006D11F5 /* GoogleGenerativeAI */,
+			);
 			productName = FortuneBox;
 			productReference = E3F5CC642D3B842B0017FAE5 /* FortuneBox.app */;
 			productType = "com.apple.product-type.application";
@@ -379,6 +406,9 @@
 				Base,
 			);
 			mainGroup = E3F5CC5B2D3B842B0017FAE5;
+			packageReferences = (
+				E35539432D3E8933006D11F5 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+			);
 			productRefGroup = E3F5CC652D3B842B0017FAE5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -423,7 +453,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3E452F22D3C990C00DA3DF5 /* GradientBackgroundModifier.swift in Sources */,
+				E355394A2D411C5E006D11F5 /* Secrets.swift in Sources */,
 				E3F5CCA82D3B884A0017FAE5 /* FortuneStorage.swift in Sources */,
+				E35539472D3E8B84006D11F5 /* GeminiService.swift in Sources */,
 				E3E452EC2D3C85BB00DA3DF5 /* SpinnerItemView.swift in Sources */,
 				E3E452EA2D3C85B100DA3DF5 /* SpinnerItemViewModel.swift in Sources */,
 				E3E452EE2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift in Sources */,
@@ -604,8 +636,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -633,8 +664,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -764,6 +794,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E35539432D3E8933006D11F5 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google-gemini/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E35539442D3E8933006D11F5 /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E35539432D3E8933006D11F5 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E3F5CC5C2D3B842B0017FAE5 /* Project object */;
 }
