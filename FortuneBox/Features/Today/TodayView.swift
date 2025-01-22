@@ -57,19 +57,16 @@ struct TodayView: View {
                 }
                 
             case .typingTextAnimation(let fortune):
-                TypingAnimationView(message: fortune.text) {
-                    viewModel.typingTextAnimationCompleted()
-                }
-                .font(.system(size: 22, weight: .regular))
-                .multilineTextAlignment(.center)
-                .lineSpacing(8)
-                .kerning(1.2)
-                .foregroundColor(.white)
-                .padding(.top, 20)
-                .padding(.horizontal, 20)
-                
-            case .typingTextAnimationCompleted(let fortune):
-                Text(fortune.text)
+                VStack(spacing: 20) {
+                    HStack {
+                        ForEach(fortune.emojis, id: \.self) { emoji in
+                            Text(emoji)
+                                .font(.system(size: 64))
+                        }
+                    }
+                    TypingAnimationView(message: fortune.text) {
+                        viewModel.typingTextAnimationCompleted()
+                    }
                     .font(.system(size: 22, weight: .regular))
                     .multilineTextAlignment(.center)
                     .lineSpacing(8)
@@ -77,6 +74,25 @@ struct TodayView: View {
                     .foregroundColor(.white)
                     .padding(.top, 20)
                     .padding(.horizontal, 20)
+                }
+                
+            case .typingTextAnimationCompleted(let fortune):
+                VStack(spacing: 20) {
+                    HStack {
+                        ForEach(fortune.emojis, id: \.self) { emoji in
+                            Text(emoji)
+                                .font(.system(size: 64))
+                        }
+                    }
+                    Text(fortune.text)
+                        .font(.system(size: 22, weight: .regular))
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(8)
+                        .kerning(1.2)
+                        .foregroundColor(.white)
+                        .padding(.top, 20)
+                        .padding(.horizontal, 20)
+                }                
             }
 
             Spacer()
