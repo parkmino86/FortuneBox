@@ -16,7 +16,7 @@ struct TodayView: View {
 
             switch viewModel.state {
             case .appear:
-                Text("오늘의 코드,\n운명은 당신의 손끝에!\n운세를 확인하세요!")
+                Text("하루의 시작,\n운명은 당신의 손끝에!\n운세를 확인하세요!")
                     .font(.system(size: 22, weight: .regular))
                     .multilineTextAlignment(.center)
                     .lineSpacing(8)
@@ -38,7 +38,7 @@ struct TodayView: View {
                                 .font(.system(size: 64))
                         }
                     }
-                    Text("커밋 성공,\n머지 완료! 운빨 100%!")
+                    Text("오늘의 운빨 계산 중...!\n운빨 100%!")
                         .font(.system(size: 22, weight: .regular))
                         .multilineTextAlignment(.center)
                         .lineSpacing(8)
@@ -47,7 +47,7 @@ struct TodayView: View {
                     Button(action: {
                         viewModel.emojiSpinnerAnimation()
                     }) {
-                        Text("운세 빌드 실패!\n재시도합니다.")
+                        Text("이 운세 말고...\n다른 걸 찾아볼까요?")
                             .font(.system(size: 24, weight: .semibold))
                             .lineSpacing(8)
                             .padding()
@@ -105,7 +105,7 @@ struct TodayView: View {
                     viewModel.emojiSpinnerAnimation()
                 }
             }) {
-                Text("운세 빌드 성공? 눌러보세요!")
+                Text("눌러서 시작하기")
                     .font(.system(size: 18, weight: .medium))
                     .padding()
                     .frame(maxWidth: .infinity, minHeight: 50)

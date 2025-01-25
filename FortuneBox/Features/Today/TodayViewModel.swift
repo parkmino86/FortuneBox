@@ -32,31 +32,15 @@ final class TodayViewModel: ObservableObject {
     func emojiSpinnerAnimation() {
         guard disabled == false else { return }
         Task {
-            do {
-                let random = FortuneStorage.shared.fetchRandomFortune()!
-                let score = Int.random(in: 0...100)
-                let prompt = "\(random.emojis)는 글의 소재. 한국인을 위한 0점은 부정적, 100점은 긍정적. 오늘의 이모티콘 해석 운세. 마지막에 '오늘의 운세 점수는 \(score)점!' 표기. 짧은 1문장."
-                let generatedMessage = try await GeminiService.shared.generateContent(with: prompt)
+            if let fortune = FortuneStorage.shared.fetchRandomFortune() {
+                state = .emojiSpinnerAnimation(data: fortune)
+            } else {
                 let fortune = Fortune(
                     id: UUID().uuidString,
-                    text: "\(wrapText(generatedMessage, maxLineLength: 16))",
-                    emojis: random.emojis
+                    text: "운세를 가져오지 못했어요!",
+                    emojis: ["⁉️", "⁉️", "⁉️"]
                 )
-                await MainActor.run {
-                    state = .emojiSpinnerAnimation(data: fortune)
-                }
-                
-            } catch {
-                if let fortune = FortuneStorage.shared.fetchRandomFortune() {
-                    state = .emojiSpinnerAnimation(data: fortune)
-                } else {
-                    let fortune = Fortune(
-                        id: UUID().uuidString,
-                        text: "운세를 가져오지 못했어요!",
-                        emojis: ["⁉️", "⁉️", "⁉️"]
-                    )
-                    state = .emojiSpinnerAnimation(data: fortune)
-                }
+                state = .emojiSpinnerAnimation(data: fortune)
             }
         }
     }
