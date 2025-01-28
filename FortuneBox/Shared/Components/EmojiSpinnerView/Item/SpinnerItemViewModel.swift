@@ -28,12 +28,12 @@ class SpinnerItemViewModel: ObservableObject {
         ],
         spinSpeed: Double,
         spinCount: Int,
-        finalEmoji: String
+        resultEmoji: String
     ) {
         self.emojiList = emojiList
         self.spinSpeed = spinSpeed
         self.spinCount = spinCount
-        self.resultEmoji = finalEmoji
+        self.resultEmoji = resultEmoji
     }
 
     func startSpinning() {

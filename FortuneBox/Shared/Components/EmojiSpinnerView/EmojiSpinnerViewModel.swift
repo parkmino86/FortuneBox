@@ -14,7 +14,7 @@ final class EmojiSpinnerViewModel: ObservableObject {
             SpinnerItemViewModel(
                 spinSpeed: 0.05 + 0.02 * Double(index),
                 spinCount: 20 + 10 * index,
-                finalEmoji: fortune.emojis[index % fortune.emojis.count]
+                resultEmoji: fortune.emojis[index % fortune.emojis.count]
             )
         }
 
