@@ -21,6 +21,6 @@ struct FortuneBoxWidget: Widget {
         }
         .configurationDisplayName("오늘의 운빨 확인하기")
         .description("이모지와 함께 오늘의 운세를 확인하고, 행운을 경험해 보세요!")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }

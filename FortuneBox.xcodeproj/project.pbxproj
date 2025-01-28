@@ -31,6 +31,7 @@
 		E3DC0F612D47DDE500BEF5FC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DC0F5F2D47DC2800BEF5FC /* UserDefaultsManager.swift */; };
 		E3DC0F632D47E6E300BEF5FC /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35539492D411C5E006D11F5 /* Secrets.swift */; };
 		E3DC0F652D489C5700BEF5FC /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DC0F642D489C5700BEF5FC /* Notification.swift */; };
+		E3DC0F662D48E23400BEF5FC /* FortuneBoxEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E355398E2D476E7C006D11F5 /* FortuneBoxEntry.swift */; };
 		E3E452EA2D3C85B100DA3DF5 /* SpinnerItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452E92D3C85B100DA3DF5 /* SpinnerItemViewModel.swift */; };
 		E3E452EC2D3C85BB00DA3DF5 /* SpinnerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452EB2D3C85BB00DA3DF5 /* SpinnerItemView.swift */; };
 		E3E452EE2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452ED2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift */; };
@@ -648,6 +649,7 @@
 			files = (
 				E3E452F22D3C990C00DA3DF5 /* GradientBackgroundModifier.swift in Sources */,
 				E355394A2D411C5E006D11F5 /* Secrets.swift in Sources */,
+				E3DC0F662D48E23400BEF5FC /* FortuneBoxEntry.swift in Sources */,
 				E3F5CCA82D3B884A0017FAE5 /* FortuneStorage.swift in Sources */,
 				E35539472D3E8B84006D11F5 /* GeminiService.swift in Sources */,
 				E3E452EC2D3C85BB00DA3DF5 /* SpinnerItemView.swift in Sources */,
@@ -814,6 +816,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "운빨존망운세";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -871,6 +874,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "운빨존망운세";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -894,6 +898,8 @@
 				DEVELOPMENT_TEAM = G3RSN5GZ2E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "운빨존망운세";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -924,6 +930,8 @@
 				DEVELOPMENT_TEAM = G3RSN5GZ2E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "운빨존망운세";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

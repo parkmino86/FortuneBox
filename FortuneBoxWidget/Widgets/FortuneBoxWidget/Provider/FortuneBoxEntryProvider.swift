@@ -21,7 +21,10 @@ struct FortuneBoxEntryProvider: AppIntentTimelineProvider {
         let currentDate = Date()
         let nextDate = Calendar.current.nextDate(after: currentDate, matching: DateComponents(hour: 0), matchingPolicy: .nextTime)!
 
-        let entry = FortuneBoxEntry(date: Date(), fortune: UserDefaultsManager.shared.fortune)
-        return Timeline(entries: [entry], policy: .after(nextDate))
+        let entries = [
+            FortuneBoxEntry(date: Date(), fortune: UserDefaultsManager.shared.fortune),
+            FortuneBoxEntry(date: nextDate, fortune: nil)
+        ]
+        return Timeline(entries: entries, policy: .never)
     }
 }
