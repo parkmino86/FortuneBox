@@ -10,45 +10,43 @@ import Combine
 
 class SpinnerItemViewModel: ObservableObject {
     @Published var currentEmoji: String = "🎲"
-    @Published var isCompleted: Bool = false
+    @Published var isFinished: Bool = false
 
     private var cancellables = Set<AnyCancellable>()
-    private let availableEmoji: [String]
-    private let spinningSpeed: Double
-    private let spinningCount: Int
-    private let finalEmoji: String
+    private let emojiList: [String]
+    private let spinSpeed: Double
+    private let spinCount: Int
+    private let resultEmoji: String
 
     init(
-        availableEmoji: [String] = [
+        emojiList: [String] = [
             "🚇", "🪑", "📖", "🍽", "🍛", "👀",
             "☕", "🧹", "💦", "💻", "📊", "💾",
             "🏢", "🧍‍♂️", "🙂", "🍻", "🕒", "💼",
             "🍪", "🍩", "👏", "❄️", "🥵", "🧥",
             "🖨", "📄", "🔧", "☔", "🌧", "🌂"
         ],
-        spinningSpeed: Double,
-        spinningCount: Int,
+        spinSpeed: Double,
+        spinCount: Int,
         finalEmoji: String
     ) {
-        self.availableEmoji = availableEmoji
-        self.spinningSpeed = spinningSpeed
-        self.spinningCount = spinningCount
-        self.finalEmoji = finalEmoji
+        self.emojiList = emojiList
+        self.spinSpeed = spinSpeed
+        self.spinCount = spinCount
+        self.resultEmoji = finalEmoji
     }
 
     func startSpinning() {
-        Timer.publish(every: spinningSpeed, on: .main, in: .common)
+        Timer.publish(every: spinSpeed, on: .main, in: .common)
             .autoconnect()
-            .prefix(spinningCount)
+            .prefix(spinCount)
             .sink(
                 receiveCompletion: { [weak self] _ in
-                    guard let self else { return }
-                    self.currentEmoji = self.finalEmoji
-                    self.isCompleted = true
+                    self?.currentEmoji = self?.resultEmoji ?? "🎲"
+                    self?.isFinished = true
                 },
                 receiveValue: { [weak self] _ in
-                    guard let self else { return }
-                    self.currentEmoji = self.availableEmoji.randomElement() ?? "⁉️"
+                    self?.currentEmoji = self?.emojiList.randomElement() ?? "⁉️"
                 }
             )
             .store(in: &cancellables)

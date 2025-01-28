@@ -11,6 +11,26 @@
 		E35539452D3E8933006D11F5 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = E35539442D3E8933006D11F5 /* GoogleGenerativeAI */; };
 		E35539472D3E8B84006D11F5 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35539462D3E8B84006D11F5 /* GeminiService.swift */; };
 		E355394A2D411C5E006D11F5 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35539492D411C5E006D11F5 /* Secrets.swift */; };
+		E35539702D476D0F006D11F5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E355396F2D476D0F006D11F5 /* WidgetKit.framework */; };
+		E35539722D476D0F006D11F5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E35539712D476D0F006D11F5 /* SwiftUI.framework */; };
+		E35539752D476D0F006D11F5 /* FortuneBoxWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35539742D476D0F006D11F5 /* FortuneBoxWidgetBundle.swift */; };
+		E35539792D476D0F006D11F5 /* FortuneBoxWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35539782D476D0F006D11F5 /* FortuneBoxWidget.swift */; };
+		E355397D2D476D11006D11F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E355397C2D476D11006D11F5 /* Assets.xcassets */; };
+		E35539812D476D11006D11F5 /* FortuneBoxWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E355396D2D476D0F006D11F5 /* FortuneBoxWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E35539882D476DE2006D11F5 /* FortuneBoxIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35539872D476DE2006D11F5 /* FortuneBoxIntent.swift */; };
+		E35539922D4771CF006D11F5 /* FortuneStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5CCA72D3B884A0017FAE5 /* FortuneStorage.swift */; };
+		E35539932D4771D3006D11F5 /* fortune-box.json in Resources */ = {isa = PBXBuildFile; fileRef = E3F5CCA52D3B882C0017FAE5 /* fortune-box.json */; };
+		E35539942D4771E1006D11F5 /* FortuneBoxEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E355398E2D476E7C006D11F5 /* FortuneBoxEntry.swift */; };
+		E35539952D4771E4006D11F5 /* FortuneBoxEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E355398C2D476E74006D11F5 /* FortuneBoxEntryView.swift */; };
+		E35539962D4771E8006D11F5 /* FortuneBoxEntryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35539902D476EC8006D11F5 /* FortuneBoxEntryProvider.swift */; };
+		E35539992D477277006D11F5 /* Fortune.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5CC952D3B86B80017FAE5 /* Fortune.swift */; };
+		E355399A2D4772C7006D11F5 /* FortuneBoxIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35539872D476DE2006D11F5 /* FortuneBoxIntent.swift */; };
+		E355399E2D4772FA006D11F5 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E355399D2D4772FA006D11F5 /* Date+Extensions.swift */; };
+		E355399F2D477301006D11F5 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E355399D2D4772FA006D11F5 /* Date+Extensions.swift */; };
+		E3DC0F602D47DC2800BEF5FC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DC0F5F2D47DC2800BEF5FC /* UserDefaultsManager.swift */; };
+		E3DC0F612D47DDE500BEF5FC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DC0F5F2D47DC2800BEF5FC /* UserDefaultsManager.swift */; };
+		E3DC0F632D47E6E300BEF5FC /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35539492D411C5E006D11F5 /* Secrets.swift */; };
+		E3DC0F652D489C5700BEF5FC /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DC0F642D489C5700BEF5FC /* Notification.swift */; };
 		E3E452EA2D3C85B100DA3DF5 /* SpinnerItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452E92D3C85B100DA3DF5 /* SpinnerItemViewModel.swift */; };
 		E3E452EC2D3C85BB00DA3DF5 /* SpinnerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452EB2D3C85BB00DA3DF5 /* SpinnerItemView.swift */; };
 		E3E452EE2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E452ED2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift */; };
@@ -32,6 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E355397F2D476D11006D11F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3F5CC5C2D3B842B0017FAE5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E355396C2D476D0F006D11F5;
+			remoteInfo = FortuneBoxWidgetExtension;
+		};
 		E3F5CC752D3B842F0017FAE5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E3F5CC5C2D3B842B0017FAE5 /* Project object */;
@@ -48,10 +75,39 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E35539822D476D11006D11F5 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E35539812D476D11006D11F5 /* FortuneBoxWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E35539372D3D1362006D11F5 /* ShimmerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerModifier.swift; sourceTree = "<group>"; };
 		E35539462D3E8B84006D11F5 /* GeminiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
 		E35539492D411C5E006D11F5 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		E355396D2D476D0F006D11F5 /* FortuneBoxWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FortuneBoxWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E355396F2D476D0F006D11F5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		E35539712D476D0F006D11F5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		E35539742D476D0F006D11F5 /* FortuneBoxWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneBoxWidgetBundle.swift; sourceTree = "<group>"; };
+		E35539782D476D0F006D11F5 /* FortuneBoxWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneBoxWidget.swift; sourceTree = "<group>"; };
+		E355397C2D476D11006D11F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E355397E2D476D11006D11F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E35539872D476DE2006D11F5 /* FortuneBoxIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneBoxIntent.swift; sourceTree = "<group>"; };
+		E355398C2D476E74006D11F5 /* FortuneBoxEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneBoxEntryView.swift; sourceTree = "<group>"; };
+		E355398E2D476E7C006D11F5 /* FortuneBoxEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneBoxEntry.swift; sourceTree = "<group>"; };
+		E35539902D476EC8006D11F5 /* FortuneBoxEntryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneBoxEntryProvider.swift; sourceTree = "<group>"; };
+		E355399D2D4772FA006D11F5 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		E35539A02D4774D1006D11F5 /* FortuneBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FortuneBox.entitlements; sourceTree = "<group>"; };
+		E3DC0F5F2D47DC2800BEF5FC /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		E3DC0F642D489C5700BEF5FC /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		E3E452E92D3C85B100DA3DF5 /* SpinnerItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerItemViewModel.swift; sourceTree = "<group>"; };
 		E3E452EB2D3C85BB00DA3DF5 /* SpinnerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerItemView.swift; sourceTree = "<group>"; };
 		E3E452ED2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSpinnerViewModel.swift; sourceTree = "<group>"; };
@@ -76,6 +132,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E355396A2D476D0F006D11F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E35539722D476D0F006D11F5 /* SwiftUI.framework in Frameworks */,
+				E35539702D476D0F006D11F5 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3F5CC612D3B842B0017FAE5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,6 +191,86 @@
 			path = Gemini;
 			sourceTree = "<group>";
 		};
+		E355396E2D476D0F006D11F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E355396F2D476D0F006D11F5 /* WidgetKit.framework */,
+				E35539712D476D0F006D11F5 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E35539732D476D0F006D11F5 /* FortuneBoxWidget */ = {
+			isa = PBXGroup;
+			children = (
+				E35539972D477225006D11F5 /* Widgets */,
+				E35539742D476D0F006D11F5 /* FortuneBoxWidgetBundle.swift */,
+				E355397C2D476D11006D11F5 /* Assets.xcassets */,
+				E355397E2D476D11006D11F5 /* Info.plist */,
+			);
+			path = FortuneBoxWidget;
+			sourceTree = "<group>";
+		};
+		E35539862D476DD0006D11F5 /* Intent */ = {
+			isa = PBXGroup;
+			children = (
+				E35539872D476DE2006D11F5 /* FortuneBoxIntent.swift */,
+			);
+			path = Intent;
+			sourceTree = "<group>";
+		};
+		E35539892D476E51006D11F5 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				E355398A2D476E58006D11F5 /* EntryView */,
+				E355398B2D476E5E006D11F5 /* Entry */,
+				E35539902D476EC8006D11F5 /* FortuneBoxEntryProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		E355398A2D476E58006D11F5 /* EntryView */ = {
+			isa = PBXGroup;
+			children = (
+				E355398C2D476E74006D11F5 /* FortuneBoxEntryView.swift */,
+			);
+			path = EntryView;
+			sourceTree = "<group>";
+		};
+		E355398B2D476E5E006D11F5 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				E355398E2D476E7C006D11F5 /* FortuneBoxEntry.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		E35539972D477225006D11F5 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				E35539982D477234006D11F5 /* FortuneBoxWidget */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		E35539982D477234006D11F5 /* FortuneBoxWidget */ = {
+			isa = PBXGroup;
+			children = (
+				E35539892D476E51006D11F5 /* Provider */,
+				E35539862D476DD0006D11F5 /* Intent */,
+				E35539782D476D0F006D11F5 /* FortuneBoxWidget.swift */,
+			);
+			path = FortuneBoxWidget;
+			sourceTree = "<group>";
+		};
+		E3DC0F5E2D47DC1600BEF5FC /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				E3DC0F5F2D47DC2800BEF5FC /* UserDefaultsManager.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		E3E452E72D3C82ED00DA3DF5 /* EmojiSpinnerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +313,8 @@
 				E3F5CC662D3B842B0017FAE5 /* FortuneBox */,
 				E3F5CC772D3B842F0017FAE5 /* FortuneBoxTests */,
 				E3F5CC812D3B842F0017FAE5 /* FortuneBoxUITests */,
+				E35539732D476D0F006D11F5 /* FortuneBoxWidget */,
+				E355396E2D476D0F006D11F5 /* Frameworks */,
 				E3F5CC652D3B842B0017FAE5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -178,6 +325,7 @@
 				E3F5CC642D3B842B0017FAE5 /* FortuneBox.app */,
 				E3F5CC742D3B842F0017FAE5 /* FortuneBoxTests.xctest */,
 				E3F5CC7E2D3B842F0017FAE5 /* FortuneBoxUITests.xctest */,
+				E355396D2D476D0F006D11F5 /* FortuneBoxWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,8 +373,10 @@
 		E3F5CC912D3B86890017FAE5 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				E35539A02D4774D1006D11F5 /* FortuneBox.entitlements */,
 				E3F5CC672D3B842B0017FAE5 /* FortuneBoxApp.swift */,
 				E35539492D411C5E006D11F5 /* Secrets.swift */,
+				E3DC0F642D489C5700BEF5FC /* Notification.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -270,21 +420,14 @@
 				E3E452EF2D3C98ED00DA3DF5 /* DesignSystems */,
 				E3F5CCA92D3B8A4C0017FAE5 /* Components */,
 				E3F5CC9E2D3B870E0017FAE5 /* Extensions */,
-				E3F5CC9D2D3B87070017FAE5 /* Utilities */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		E3F5CC9D2D3B87070017FAE5 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		E3F5CC9E2D3B870E0017FAE5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E355399D2D4772FA006D11F5 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -292,6 +435,7 @@
 		E3F5CCA32D3B87F80017FAE5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E3DC0F5E2D47DC1600BEF5FC /* Persistence */,
 				E3F5CCA42D3B88090017FAE5 /* Local */,
 			);
 			path = Data;
@@ -318,6 +462,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E355396C2D476D0F006D11F5 /* FortuneBoxWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E35539852D476D11006D11F5 /* Build configuration list for PBXNativeTarget "FortuneBoxWidgetExtension" */;
+			buildPhases = (
+				E35539692D476D0F006D11F5 /* Sources */,
+				E355396A2D476D0F006D11F5 /* Frameworks */,
+				E355396B2D476D0F006D11F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FortuneBoxWidgetExtension;
+			productName = FortuneBoxWidgetExtension;
+			productReference = E355396D2D476D0F006D11F5 /* FortuneBoxWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		E3F5CC632D3B842B0017FAE5 /* FortuneBox */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3F5CC882D3B842F0017FAE5 /* Build configuration list for PBXNativeTarget "FortuneBox" */;
@@ -325,10 +486,12 @@
 				E3F5CC602D3B842B0017FAE5 /* Sources */,
 				E3F5CC612D3B842B0017FAE5 /* Frameworks */,
 				E3F5CC622D3B842B0017FAE5 /* Resources */,
+				E35539822D476D11006D11F5 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E35539802D476D11006D11F5 /* PBXTargetDependency */,
 			);
 			name = FortuneBox;
 			packageProductDependencies = (
@@ -384,6 +547,9 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					E355396C2D476D0F006D11F5 = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					E3F5CC632D3B842B0017FAE5 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -416,11 +582,21 @@
 				E3F5CC632D3B842B0017FAE5 /* FortuneBox */,
 				E3F5CC732D3B842F0017FAE5 /* FortuneBoxTests */,
 				E3F5CC7D2D3B842F0017FAE5 /* FortuneBoxUITests */,
+				E355396C2D476D0F006D11F5 /* FortuneBoxWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E355396B2D476D0F006D11F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E355397D2D476D11006D11F5 /* Assets.xcassets in Resources */,
+				E35539932D4771D3006D11F5 /* fortune-box.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3F5CC622D3B842B0017FAE5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,6 +624,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E35539692D476D0F006D11F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E35539952D4771E4006D11F5 /* FortuneBoxEntryView.swift in Sources */,
+				E35539752D476D0F006D11F5 /* FortuneBoxWidgetBundle.swift in Sources */,
+				E355399F2D477301006D11F5 /* Date+Extensions.swift in Sources */,
+				E35539962D4771E8006D11F5 /* FortuneBoxEntryProvider.swift in Sources */,
+				E35539942D4771E1006D11F5 /* FortuneBoxEntry.swift in Sources */,
+				E35539992D477277006D11F5 /* Fortune.swift in Sources */,
+				E3DC0F612D47DDE500BEF5FC /* UserDefaultsManager.swift in Sources */,
+				E35539792D476D0F006D11F5 /* FortuneBoxWidget.swift in Sources */,
+				E35539922D4771CF006D11F5 /* FortuneStorage.swift in Sources */,
+				E355399A2D4772C7006D11F5 /* FortuneBoxIntent.swift in Sources */,
+				E3DC0F632D47E6E300BEF5FC /* Secrets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3F5CC602D3B842B0017FAE5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -460,13 +654,17 @@
 				E3E452EA2D3C85B100DA3DF5 /* SpinnerItemViewModel.swift in Sources */,
 				E3E452EE2D3C86F300DA3DF5 /* EmojiSpinnerViewModel.swift in Sources */,
 				E3E452FB2D3CF49800DA3DF5 /* TypingAnimationViewModel.swift in Sources */,
+				E355399E2D4772FA006D11F5 /* Date+Extensions.swift in Sources */,
 				E3F5CC682D3B842B0017FAE5 /* FortuneBoxApp.swift in Sources */,
 				E3F5CC9B2D3B86DE0017FAE5 /* TodayViewModel.swift in Sources */,
 				E35539382D3D1362006D11F5 /* ShimmerModifier.swift in Sources */,
+				E3DC0F652D489C5700BEF5FC /* Notification.swift in Sources */,
 				E3F5CC992D3B86D00017FAE5 /* TodayView.swift in Sources */,
 				E3E452FA2D3CF49800DA3DF5 /* TypingAnimationView.swift in Sources */,
+				E3DC0F602D47DC2800BEF5FC /* UserDefaultsManager.swift in Sources */,
 				E3F5CC962D3B86B80017FAE5 /* Fortune.swift in Sources */,
 				E3F5CCAB2D3B8A550017FAE5 /* EmojiSpinnerView.swift in Sources */,
+				E35539882D476DE2006D11F5 /* FortuneBoxIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +688,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E35539802D476D11006D11F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E355396C2D476D0F006D11F5 /* FortuneBoxWidgetExtension */;
+			targetProxy = E355397F2D476D11006D11F5 /* PBXContainerItemProxy */;
+		};
 		E3F5CC762D3B842F0017FAE5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E3F5CC632D3B842B0017FAE5 /* FortuneBox */;
@@ -503,6 +706,62 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		E35539832D476D11006D11F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FortuneBox/App/FortuneBox.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3RSN5GZ2E;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FortuneBoxWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FortuneBoxWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miniverse.FortuneBox.FortuneBoxWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E35539842D476D11006D11F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FortuneBox/App/FortuneBox.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3RSN5GZ2E;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FortuneBoxWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FortuneBoxWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miniverse.FortuneBox.FortuneBoxWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		E3F5CC862D3B842F0017FAE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -625,8 +884,10 @@
 		E3F5CC892D3B842F0017FAE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FortuneBox/App/FortuneBox.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FortuneBox/Preview Content\"";
@@ -653,8 +914,10 @@
 		E3F5CC8A2D3B842F0017FAE5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FortuneBox/App/FortuneBox.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FortuneBox/Preview Content\"";
@@ -757,6 +1020,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E35539852D476D11006D11F5 /* Build configuration list for PBXNativeTarget "FortuneBoxWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E35539832D476D11006D11F5 /* Debug */,
+				E35539842D476D11006D11F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E3F5CC5F2D3B842B0017FAE5 /* Build configuration list for PBXProject "FortuneBox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

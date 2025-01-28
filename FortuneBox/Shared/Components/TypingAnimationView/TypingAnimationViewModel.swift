@@ -9,34 +9,34 @@ import SwiftUI
 import Combine
 
 class TypingAnimationViewModel: ObservableObject {
-    @Published var displayedText: String = ""
-    @Published var allTypingCompleted: Bool = false
+    @Published var currentText: String = ""
+    @Published var isTypingCompleted: Bool = false
 
     private var cancellables = Set<AnyCancellable>()
 
-    func animate(text: String, interval: TimeInterval = 0.1) {
-        displayedText = ""
-        var currentIndex = 0
+    func startTypingAnimation(for text: String, interval: TimeInterval = 0.1) {
+        currentText = ""
+        var typingIndex = 0
 
         Timer.publish(every: interval, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 guard let self = self else { return }
 
-                guard currentIndex < text.count else {
-                    self.invalidate()
-                    self.allTypingCompleted = true
+                guard typingIndex < text.count else {
+                    self.stopAnimation()
+                    self.isTypingCompleted = true
                     return
                 }
 
-                let index = text.index(text.startIndex, offsetBy: currentIndex)
-                self.displayedText.append(text[index])
-                currentIndex += 1
+                let index = text.index(text.startIndex, offsetBy: typingIndex)
+                self.currentText.append(text[index])
+                typingIndex += 1
             }
             .store(in: &cancellables)
     }
 
-    func invalidate() {
+    func stopAnimation() {
         cancellables.removeAll()
     }
 }

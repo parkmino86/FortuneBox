@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct TypingAnimationView: View {
-    @StateObject private var viewModel = TypingAnimationViewModel()
+    @StateObject private var viewModel: TypingAnimationViewModel = TypingAnimationViewModel()
     let message: String
     let allTypingCompleted: () -> Void
 
     var body: some View {
-        Text(viewModel.displayedText)
+        Text(viewModel.currentText)
             .onAppear {
-                viewModel.animate(text: message)
+                viewModel.startTypingAnimation(for: message)
             }
             .onDisappear {
-                viewModel.invalidate()
+                viewModel.stopAnimation()
             }
-            .onReceive(viewModel.$allTypingCompleted.filter { $0 }) { _ in
+            .onReceive(viewModel.$isTypingCompleted.filter { $0 }) { _ in
                 allTypingCompleted()
             }
     }

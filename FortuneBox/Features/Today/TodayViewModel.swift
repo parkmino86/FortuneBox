@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WidgetKit
 
 final class TodayViewModel: ObservableObject {
     enum State: Equatable {
@@ -53,7 +54,9 @@ final class TodayViewModel: ObservableObject {
     
     func typingTextAnimation() {
         if case .emojiSpinnerAnimationCompleted(let fortune) = state {
+            UserDefaultsManager.shared.fortune = fortune
             state = .typingTextAnimation(data: fortune)
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     
@@ -61,6 +64,15 @@ final class TodayViewModel: ObservableObject {
         if case .typingTextAnimation(let fortune) = state {
             state = .typingTextAnimationCompleted(data: fortune)
         }
+    }
+    
+    func didFortuneBoxWidgetTapped() {
+        if let fortune = UserDefaultsManager.shared.fortune {
+           state = .typingTextAnimationCompleted(data: fortune)
+           
+       } else {
+           state = .appear
+       }
     }
 }
 

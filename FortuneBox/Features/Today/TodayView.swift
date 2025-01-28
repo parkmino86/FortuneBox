@@ -127,5 +127,8 @@ struct TodayView: View {
         }
         .padding()
         .background(Color.black.ignoresSafeArea())
+        .onReceive(NotificationCenter.default.publisher(for: .didFortuneBoxWidgetTapped)) { notification in
+            viewModel.didFortuneBoxWidgetTapped()
+        }
     }
 }

@@ -9,4 +9,5 @@ import Foundation
 
 enum Secrets {
     static let apiKey: String = ""
+    static let suiteName = "group.miniverse.FortuneBox"
 }
