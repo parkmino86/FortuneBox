@@ -35,9 +35,11 @@ struct TodayView: View {
                                     .font(.system(size: 64))
                             }
                         }
-                        Text("오늘의 이모지 설정 완료!")
+                        Text("이모지가 정해졌어요!\n어떤 하루일까요?!")
+                            .lineLimit(nil)
                             .font(.system(size: 22, weight: .regular))
                             .multilineTextAlignment(.center)
+                            .lineSpacing(8)
                             .foregroundColor(.white)
                     }
 
@@ -54,6 +56,7 @@ struct TodayView: View {
                         }
                         .font(.system(size: 22, weight: .regular))
                         .multilineTextAlignment(.center)
+                        .lineSpacing(8)
                         .foregroundColor(.white)
                         .padding(.top, 20)
                         .padding(.horizontal, 20)
@@ -70,6 +73,7 @@ struct TodayView: View {
                         Text(fortune.text)
                             .font(.system(size: 22, weight: .regular))
                             .multilineTextAlignment(.center)
+                            .lineSpacing(8)
                             .foregroundColor(.white)
                             .padding(.top, 20)
                             .padding(.horizontal, 20)
@@ -98,7 +102,7 @@ struct TodayView: View {
                     viewModel.send(.startEmojiSpinnerAnimation)
                 }
             }) {
-                Text("오늘의 이모지 받기")
+                Text(viewModel.buttonTitle)
                     .font(.system(size: 18, weight: .medium))
                     .padding()
                     .frame(maxWidth: .infinity, minHeight: 50)
