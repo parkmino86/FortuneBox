@@ -9,97 +9,92 @@ import Foundation
 import WidgetKit
 
 final class TodayViewModel: ObservableObject {
-    enum State: Equatable {
-        case appear
-        case emojiSpinnerAnimation(data: Fortune)
-        case emojiSpinnerAnimationCompleted(data: Fortune)
-        case typingTextAnimation(data: Fortune)
-        case typingTextAnimationCompleted(data: Fortune)
+    
+    struct State: Equatable {
+        var fortune: Fortune? = nil
+        var viewState: ViewState = .appear
     }
 
-    @Published private(set) var state: State = .appear
+    enum ViewState: Equatable {
+        case appear
+        case emojiSpinnerAnimation
+        case emojiSpinnerAnimationCompleted
+        case typingTextAnimation
+        case typingTextAnimationCompleted
+    }
+
+    enum Action: Equatable {
+        case appear
+        case startEmojiSpinnerAnimation
+        case completeEmojiSpinnerAnimation
+        case startTypingTextAnimation
+        case completeTypingTextAnimation
+        case widgetTapped
+    }
+
+    @Published private(set) var state: State
+
+    init(state: State = State()) {
+        self.state = state
+    }
 
     var disabled: Bool {
-        if case .emojiSpinnerAnimation = state { return true }
-        return false
+        state.viewState == .emojiSpinnerAnimation
     }
-    
+
     var opacity: Double {
-        if case .emojiSpinnerAnimation = state { return 0.0 }
-        if case .typingTextAnimation = state { return 0.0 }
-        return 1.0
-    }
-    
-    func emojiSpinnerAnimation() {
-        guard disabled == false else { return }
-        Task {
-            if let fortune = FortuneStorage.shared.fetchRandomFortune() {
-                state = .emojiSpinnerAnimation(data: fortune)
-            } else {
-                let fortune = Fortune(
-                    id: UUID().uuidString,
-                    text: "이모지를 가져오지 못했어요!",
-                    emojis: ["⁉️", "⁉️", "⁉️"]
-                )
-                state = .emojiSpinnerAnimation(data: fortune)
-            }
-        }
+        state.viewState == .emojiSpinnerAnimation || state.viewState == .typingTextAnimation ? 0.0 : 1.0
     }
 
-    func emojiSpinnerAnimationCompleted() {
-        if case .emojiSpinnerAnimation(let fortune) = state {
-            state = .emojiSpinnerAnimationCompleted(data: fortune)
-        }
-    }
-    
-    func typingTextAnimation() {
-        if case .emojiSpinnerAnimationCompleted(let fortune) = state {
-            UserDefaultsManager.shared.fortune = fortune
-            state = .typingTextAnimation(data: fortune)
-            WidgetCenter.shared.reloadAllTimelines()
-        }
-    }
-    
-    func typingTextAnimationCompleted() {
-        if case .typingTextAnimation(let fortune) = state {
-            state = .typingTextAnimationCompleted(data: fortune)
-        }
-    }
-    
-    func didFortuneBoxWidgetTapped() {
-        if let fortune = UserDefaultsManager.shared.fortune {
-           state = .typingTextAnimationCompleted(data: fortune)
-           
-       } else {
-           state = .appear
-       }
-    }
-}
+    func send(_ action: Action) {
+        switch action {
+        case .appear:
+            state = State()
 
-extension TodayViewModel {
-    private func wrapText(_ text: String, maxLineLength: Int) -> String {
-        var result = ""
-        var currentLine = ""
-        
-        let cleanedText = text.replacingOccurrences(of: "\n", with: " ")
-        let words = cleanedText.split(separator: " ")
-        
-        for word in words {
-            if currentLine.count + word.count + 1 > maxLineLength {
-                result += currentLine + "\n"
-                currentLine = String(word)
-            } else {
-                if !currentLine.isEmpty {
-                    currentLine += " "
+        case .startEmojiSpinnerAnimation:
+            guard state.viewState == .appear || state.viewState == .typingTextAnimationCompleted else { return }
+            Task {
+                if let fortune = FortuneStorage.shared.fetchRandomFortune() {
+                    DispatchQueue.main.async {
+                        self.state.fortune = fortune
+                        self.state.viewState = .emojiSpinnerAnimation
+                    }
+                } else {
+                    let defaultFortune = Fortune(
+                        id: UUID().uuidString,
+                        text: "이모지를 가져오지 못했어요!",
+                        emojis: ["⁉️", "⁉️", "⁉️"]
+                    )
+                    DispatchQueue.main.async {
+                        self.state.fortune = defaultFortune
+                        self.state.viewState = .emojiSpinnerAnimation
+                    }
                 }
-                currentLine += word
+            }
+
+        case .completeEmojiSpinnerAnimation:
+            if state.viewState == .emojiSpinnerAnimation {
+                state.viewState = .emojiSpinnerAnimationCompleted
+            }
+
+        case .startTypingTextAnimation:
+            guard state.viewState == .emojiSpinnerAnimationCompleted, let fortune = state.fortune else { return }
+            UserDefaultsManager.shared.fortune = fortune
+            state.viewState = .typingTextAnimation
+            WidgetCenter.shared.reloadAllTimelines()
+
+        case .completeTypingTextAnimation:
+            if state.viewState == .typingTextAnimation {
+                state.viewState = .typingTextAnimationCompleted
+            }
+
+        case .widgetTapped:
+            if let fortune = UserDefaultsManager.shared.fortune {
+                state.fortune = fortune
+                state.viewState = .typingTextAnimationCompleted
+            } else {
+                state = State()
             }
         }
-        
-        if !currentLine.isEmpty {
-            result += currentLine
-        }
-        
-        return result
     }
 }

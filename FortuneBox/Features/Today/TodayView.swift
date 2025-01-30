@@ -8,101 +8,94 @@
 import SwiftUI
 
 struct TodayView: View {
-    @StateObject private var viewModel = TodayViewModel()
+    @ObservedObject var viewModel: TodayViewModel
+
+    init(viewModel: TodayViewModel = TodayViewModel()) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         VStack {
             Spacer()
 
-            switch viewModel.state {
-            case .appear:
-                Text("오늘은 어떤 하루가 될까요?")
-                    .font(.system(size: 22, weight: .regular))
-                    .multilineTextAlignment(.center)
-                    .lineSpacing(8)
-                    .kerning(1.2)
-                    .foregroundColor(.white)
-
-            case .emojiSpinnerAnimation(let fortune):
-                EmojiSpinnerView(viewModel: EmojiSpinnerViewModel(fortune: fortune)) {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        viewModel.emojiSpinnerAnimationCompleted()
-                    }
-                }
-
-            case .emojiSpinnerAnimationCompleted(let fortune):
-                VStack(spacing: 20) {
-                    HStack {
-                        ForEach(fortune.emojis, id: \.self) { emoji in
-                            Text(emoji)
-                                .font(.system(size: 64))
+            if let fortune = viewModel.state.fortune {
+                switch viewModel.state.viewState {
+                case .emojiSpinnerAnimation:
+                    EmojiSpinnerView(viewModel: EmojiSpinnerViewModel(fortune: fortune)) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            viewModel.send(.completeEmojiSpinnerAnimation)
                         }
                     }
-                    Text("오늘의 이모지 설정 완료!")
-                        .font(.system(size: 22, weight: .regular))
-                        .multilineTextAlignment(.center)
-                        .lineSpacing(8)
-                        .kerning(1.2)
-                        .foregroundColor(.white)
-                    Button(action: {
-                        viewModel.emojiSpinnerAnimation()
-                    }) {
-                        Text("다른 이모지를 찾아볼까요?")
-                            .font(.system(size: 24, weight: .semibold))
-                            .lineSpacing(8)
-                            .padding()
+
+                case .emojiSpinnerAnimationCompleted:
+                    VStack(spacing: 20) {
+                        HStack {
+                            ForEach(fortune.emojis, id: \.self) { emoji in
+                                Text(emoji)
+                                    .font(.system(size: 64))
+                            }
+                        }
+                        Text("오늘의 이모지 설정 완료!")
+                            .font(.system(size: 22, weight: .regular))
+                            .multilineTextAlignment(.center)
                             .foregroundColor(.white)
-                            .shimmer()
                     }
-                }
-                
-            case .typingTextAnimation(let fortune):
-                VStack(spacing: 20) {
-                    HStack {
-                        ForEach(fortune.emojis, id: \.self) { emoji in
-                            Text(emoji)
-                                .font(.system(size: 64))
+
+                case .typingTextAnimation:
+                    VStack(spacing: 20) {
+                        HStack {
+                            ForEach(fortune.emojis, id: \.self) { emoji in
+                                Text(emoji)
+                                    .font(.system(size: 64))
+                            }
                         }
-                    }
-                    TypingAnimationView(message: fortune.text) {
-                        viewModel.typingTextAnimationCompleted()
-                    }
-                    .font(.system(size: 22, weight: .regular))
-                    .multilineTextAlignment(.center)
-                    .lineSpacing(8)
-                    .kerning(1.2)
-                    .foregroundColor(.white)
-                    .padding(.top, 20)
-                    .padding(.horizontal, 20)
-                }
-                
-            case .typingTextAnimationCompleted(let fortune):
-                VStack(spacing: 20) {
-                    HStack {
-                        ForEach(fortune.emojis, id: \.self) { emoji in
-                            Text(emoji)
-                                .font(.system(size: 64))
+                        TypingAnimationView(message: fortune.text) {
+                            viewModel.send(.completeTypingTextAnimation)
                         }
-                    }
-                    Text(fortune.text)
                         .font(.system(size: 22, weight: .regular))
                         .multilineTextAlignment(.center)
-                        .lineSpacing(8)
-                        .kerning(1.2)
                         .foregroundColor(.white)
                         .padding(.top, 20)
                         .padding(.horizontal, 20)
-                }                
+                    }
+
+                case .typingTextAnimationCompleted:
+                    VStack(spacing: 20) {
+                        HStack {
+                            ForEach(fortune.emojis, id: \.self) { emoji in
+                                Text(emoji)
+                                    .font(.system(size: 64))
+                            }
+                        }
+                        Text(fortune.text)
+                            .font(.system(size: 22, weight: .regular))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.white)
+                            .padding(.top, 20)
+                            .padding(.horizontal, 20)
+                    }
+
+                default:
+                    Text("오늘은 어떤 하루가 될까요?")
+                        .font(.system(size: 22, weight: .regular))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.white)
+                }
+            } else {
+                Text("오늘은 어떤 하루가 될까요?")
+                    .font(.system(size: 22, weight: .regular))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
             }
 
             Spacer()
 
             Button(action: {
-                switch viewModel.state {
+                switch viewModel.state.viewState {
                 case .emojiSpinnerAnimationCompleted:
-                    viewModel.typingTextAnimation()
+                    viewModel.send(.startTypingTextAnimation)
                 default:
-                    viewModel.emojiSpinnerAnimation()
+                    viewModel.send(.startEmojiSpinnerAnimation)
                 }
             }) {
                 Text("오늘의 이모지 받기")
@@ -127,8 +120,8 @@ struct TodayView: View {
         }
         .padding()
         .background(Color.black.ignoresSafeArea())
-        .onReceive(NotificationCenter.default.publisher(for: .didFortuneBoxWidgetTapped)) { notification in
-            viewModel.didFortuneBoxWidgetTapped()
+        .onReceive(NotificationCenter.default.publisher(for: .didFortuneBoxWidgetTapped)) { _ in
+            viewModel.send(.widgetTapped)
         }
     }
 }
