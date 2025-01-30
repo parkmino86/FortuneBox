@@ -35,7 +35,7 @@ extension FortuneBoxEntryView {
             }
             
             if let emojis = entry.fortune?.emojis, !emojis.isEmpty {
-                Text("오늘의 운세는")
+                Text("오늘의 이모지는")
                     .font(.headline)
                     .fontWeight(.bold)
                 
@@ -51,7 +51,7 @@ extension FortuneBoxEntryView {
                     .fontWeight(.bold)
                 
             } else {
-                Text("오늘의 운세를")
+                Text("오늘의 이모지를")
                     .font(.headline)
                     .fontWeight(.bold)
                 
@@ -78,11 +78,10 @@ extension FortuneBoxEntryView {
                 Text(fortune.text.replacingOccurrences(of: "\n", with: " "))
                     .font(.subheadline)
                     .kerning(1.2)
-                    .foregroundColor(.white)
                     .lineLimit(nil)
                 
             } else {
-                Text("오늘의 운세를")
+                Text("오늘의 이모지를")
                     .font(.headline)
                     .fontWeight(.bold)
                 

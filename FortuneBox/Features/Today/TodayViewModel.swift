@@ -38,7 +38,7 @@ final class TodayViewModel: ObservableObject {
             } else {
                 let fortune = Fortune(
                     id: UUID().uuidString,
-                    text: "운세를 가져오지 못했어요!",
+                    text: "이모지를 가져오지 못했어요!",
                     emojis: ["⁉️", "⁉️", "⁉️"]
                 )
                 state = .emojiSpinnerAnimation(data: fortune)

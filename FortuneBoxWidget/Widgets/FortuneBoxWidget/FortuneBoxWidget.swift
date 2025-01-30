@@ -19,8 +19,8 @@ struct FortuneBoxWidget: Widget {
             FortuneBoxEntryView(entry: entry)
                 .widgetURL(URL(string: "fortunebox://"))
         }
-        .configurationDisplayName("오늘의 운빨 확인하기")
-        .description("이모지와 함께 오늘의 운세를 확인하고, 행운을 경험해 보세요!")
+        .configurationDisplayName("오늘의 이모지 확인하기")
+        .description("이모지와 함께 오늘의 하루를 가볍게 시작해 보세요! 😊🎉")
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
