@@ -44,7 +44,9 @@ final class TodayViewModel: ObservableObject {
             state = State()
 
         case .startEmojiSpinnerAnimation:
-            guard state.viewState == .appear || state.viewState == .typingTextAnimationCompleted else { return }
+            guard state.viewState == .appear ||
+                    state.viewState == .emojiSpinnerAnimationCompleted ||
+                    state.viewState == .typingTextAnimationCompleted else { return }
             Task {
                 if let fortune = FortuneStorage.shared.fetchRandomFortune() {
                     DispatchQueue.main.async {

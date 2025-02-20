@@ -25,7 +25,7 @@ struct TodayView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                             viewModel.send(.completeEmojiSpinnerAnimation)
                         }
-                    }
+                    }                    
 
                 case .emojiSpinnerAnimationCompleted:
                     VStack(spacing: 20) {
@@ -41,6 +41,17 @@ struct TodayView: View {
                             .multilineTextAlignment(.center)
                             .lineSpacing(8)
                             .foregroundColor(.white)
+                        
+                        Button(action: {
+                            viewModel.send(.startEmojiSpinnerAnimation)
+                        }) {
+                            Text("다른 이모지를 찾아볼까요?")
+                                .font(.system(size: 24, weight: .semibold))
+                                .lineSpacing(8)
+                                .padding()
+                                .foregroundColor(.white)
+                                .shimmer()
+                        }
                     }
 
                 case .typingTextAnimation:
